@@ -4,7 +4,7 @@ public:
         int  n = nums.size();
 
 
-        int  i  = 0 ; 
+        int  i = 0 ; 
         int j  = 0 ; 
         int minl  = INT_MAX;
 
