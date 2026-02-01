@@ -1,25 +1,21 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        int n = nums.size();
+        int currm  = nums[0];
         int count =0;
-
-        int maj = nums[0];
-        for(int i =0;i<n;i++){
-            if(nums[i] == maj){
+        int n = nums.size();
+        for(int i=1;i<n;i++){
+            if(nums[i]  == currm){
                 count++;
             }
             else if(count ==0){
-                maj = nums[i];
-
+                currm = nums[i];
             }
 
             else{
-
                 count--;
             }
         }
-
-        return maj;
+        return currm;
     }
 };
