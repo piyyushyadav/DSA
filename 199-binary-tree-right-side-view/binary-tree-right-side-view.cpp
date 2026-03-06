@@ -15,29 +15,26 @@ public:
         if(root == NULL){
             return {};
         }
-
-        vector<int> ans;
-
         queue<TreeNode*> qt;
         qt.push(root);
+        vector<int> ans;
+
         while(!qt.empty()){
             int n = qt.size();
-            TreeNode* node = NULL;
-
+            TreeNode* node =NULL;
             while(n--){
                 node = qt.front();
                 qt.pop();
 
-                if(node ->left != NULL){
+                if(node->left !=NULL){
                     qt.push(node->left);
-                }
-                if(node -> right != NULL){
+                } 
+                if(node->right !=NULL){
                     qt.push(node->right);
                 }
-
-
             }
             ans.push_back(node->val);
+
         }
         return ans;
     }
