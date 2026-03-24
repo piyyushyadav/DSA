@@ -3,20 +3,22 @@ public:
     int majorityElement(vector<int>& nums) {
         int n = nums.size();
 
-        int currmax = nums[0];
-        
-        int count = 0;
-        for(int  i = 0;i<n;i++){
-            if(nums[i] == currmax){
-                count++;
+        int currm = nums[0];
+
+        int counter = 0;
+
+        for(int i =1;i<n;i++){
+            if(nums[i] == currm){
+                counter++;
             }
-           else if(count ==0){
-                currmax = nums[i];
+            else if(counter == 0){
+                currm = nums[i];
             }
+
             else{
-                count--;
+                counter --;
             }
         }
-        return currmax;
+        return currm;
     }
 };
