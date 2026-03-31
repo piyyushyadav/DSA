@@ -1,29 +1,31 @@
 class Solution {
 public:
-    int numberOfSubarrays(vector<int>& nums, int k) {
-        int n = nums.size();
+int atmost(vector<int> & nums,int k){
+     int n = nums.size();
+        int i = 0;
+        int j = 0;
 
-        int count1 = 0;
-        unordered_map<int,int> mp;
-        int result =0;
+        int count = 0;
+        int oddcount = 0;
+        while(j<n){
+             int a = nums[j];
+             if(a%2!=0){
+                oddcount++;
+             }
 
-
-        mp[count1] = 1;
-        for(int i =0;i<n;i++){
-            if(nums[i]%2 !=0){
-                count1++;
+             while(oddcount >k){
+                if(nums[i] %2 !=0){
+                    oddcount--;
                 }
-                if(mp.count(count1-k)){
-                    result+=mp[count1-k];
-                }
-
-
-                mp[count1] +=1;
-
-
-
+                i++;
+             }
+             count += j-i+1;
+             j++;
+             
         }
-        return result;
-        
+        return count;
+}
+    int numberOfSubarrays(vector<int>& nums, int k) {
+       return atmost(nums,k)-atmost(nums,k-1);
     }
 };
